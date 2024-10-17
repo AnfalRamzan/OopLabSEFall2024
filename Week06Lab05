@@ -1,0 +1,189 @@
+                 ##Task01##
+Class Player1:
+public class Player1 {
+    public String playerName;
+    public  String position;
+
+    public Player1(String playerName, String position) {
+        this.playerName = playerName;
+        this.position = position;
+    }
+
+    
+    public void displayPlayer() {
+        System.out.println("Player Name: " + playerName);
+        System.out.println("Position: " + position);
+    }
+}
+Class Team
+
+public class Team {
+    private String teamName;
+    public Player1 player1; 
+    public Player1 player2; 
+    public  Player1 player3; 
+
+    
+    public Team(String teamName) {
+        this.teamName = teamName;
+    }
+
+    
+    public void addPlayer1(Player1 player) {
+        this.player1 = player;
+    }
+
+    public void addPlayer2(Player1 player) {
+        this.player2 = player;
+    }
+
+    public void addPlayer3(Player1 player) {
+        this.player3 = player;
+    }
+
+   
+    public void displayTeam() {
+        System.out.println("Team: " + teamName);
+
+        if (player1 != null) {
+            player1.displayPlayer(); 
+        }
+
+        if (player2 != null) {
+            player2.displayPlayer(); 
+        }
+
+        if (player3 != null) {
+            player3.displayPlayer(); 
+        }
+    }
+}
+Class Agregation:
+
+public class AggregationExample {
+    public static void main(String[] args) {
+       
+        Player1 player1 = new Player1("Afridi", "Striker");
+        Player1 player2 = new Player1("Malik", "Midfielder");
+        Player1 player3 = new Player1("Shaheen", "Goalkeeper");
+
+       
+        Team team = new Team("Red Warriors");
+
+       
+        team.addPlayer1(player1);
+        team.addPlayer2(player2);
+        team.addPlayer3(player3);
+
+       
+        team.displayTeam();
+
+       
+        System.out.println("\nPlayers exist independently of the team:");
+        player1.displayPlayer();
+        player2.displayPlayer();
+        player3.displayPlayer();
+    }
+}                
+                   ##Task02##
+public class CPU {
+    public String brand;
+    public  double speed; 
+
+    public CPU(String brand, double speed) {
+        this.brand = brand;
+        this.speed = speed;
+    }
+
+    public String getDetails() {
+        return "CPU Brand: " + brand + ", Speed: " + speed + " GHz";
+    }
+}
+CLASS RAM
+public class RAM {
+    public  String brand;
+    public  int capacity; 
+
+    public RAM(String brand, int capacity) {
+        this.brand = brand;
+        this.capacity = capacity;
+    }
+
+    public String getDetails() {
+        return "RAM Brand: " + brand + ", Capacity: " + capacity + " GB";
+    }
+}
+CLASS HardDrive
+public class HardDrive {
+    public  String brand;
+    public  int capacity; 
+
+    public HardDrive(String brand, int capacity) {
+        this.brand = brand;
+        this.capacity = capacity;
+    }
+
+    public String getDetails() {
+        return "HardDrive Brand: " + brand + ", Capacity: " + capacity + " GB";
+    }
+}
+Class Computer
+public class Computer {
+    public CPU cpu;
+    public RAM ram;
+    public  HardDrive hardDrive;
+
+    public Computer(CPU cpu, RAM ram, HardDrive hardDrive) {
+        this.cpu = cpu;
+        this.ram = ram;
+        this.hardDrive = hardDrive;
+    }
+
+    public void displayDetails() {
+        if (cpu != null) {
+            System.out.println(cpu.getDetails());
+        } else {
+            System.out.println("CPU has been destroyed.");
+        }
+
+        if (ram != null) {
+            System.out.println(ram.getDetails());
+        } else {
+            System.out.println("RAM has been destroyed.");
+        }
+
+        if (hardDrive != null) {
+            System.out.println(hardDrive.getDetails());
+        } else {
+            System.out.println("HardDrive has been destroyed.");
+        }
+    }
+
+    public void destroy() {
+        cpu = null;
+        ram = null;
+        hardDrive = null;
+        System.out.println("Computer and its components destroyed!");
+    }
+}
+Class Main
+public class Main {
+    public static void main(String[] args) {
+       
+        CPU cpu = new CPU("HP", 9.5);
+        RAM ram = new RAM("DELL", 16);
+        HardDrive hardDrive = new HardDrive("Seagate", 1000);
+
+        
+        Computer computer = new Computer(cpu, ram, hardDrive);
+
+       
+        computer.displayDetails();
+
+       
+        computer.destroy();
+
+        
+        computer.displayDetails(); }
+}
+                      
